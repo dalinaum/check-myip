@@ -1,20 +1,20 @@
 package myip
 
 import (
-    "fmt"
-    _ "strings"
-    "net/http"
+	"fmt"
+	"net/http"
+	_ "strings"
 )
 
 func init() {
-    http.HandleFunc("/raw", raw)
-    http.HandleFunc("/", home)
+	http.HandleFunc("/raw", raw)
+	http.HandleFunc("/", home)
 }
 
 func raw(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprint(w, r.RemoteAddr)
+	fmt.Fprint(w, r.RemoteAddr)
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "my ip: %s", r.RemoteAddr)
+	fmt.Fprintf(w, "my ip: %s", r.RemoteAddr)
 }
