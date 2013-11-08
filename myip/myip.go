@@ -7,10 +7,14 @@ import (
 )
 
 func init() {
-    http.HandleFunc("/", handler)
+    http.HandleFunc("/raw", raw)
+    http.HandleFunc("/", home)
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func raw(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprint(w, r.RemoteAddr)
+}
+
+func home(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintf(w, "my ip: %s", r.RemoteAddr)
 }
-
