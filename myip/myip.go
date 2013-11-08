@@ -3,7 +3,6 @@ package myip
 import (
 	"fmt"
 	"net/http"
-	_ "strings"
 )
 
 func init() {
